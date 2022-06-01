@@ -387,14 +387,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 821284900}
   speed: 7
-  isGrounded: 0
-  checkRadius: 0.2
-  whatIsGround:
+  Ground:
     serializedVersion: 2
-    m_Bits: 8
-  groundPos: {fileID: 483707112}
-  jumpForce: 7.5
+    m_Bits: 64
+  groundCheck: {fileID: 483707112}
+  checkRadius: 0.2
+  jumpSpeed: 3
   jumpTime: 0.2
+  jumpForce: 6
+  fallSpeed: 0.6
+  pressedJumpTime: 1
+  groundRememberTime: 0.5
 --- !u!1 &822938852
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,9 +409,9 @@ GameObject:
   - component: {fileID: 822938855}
   - component: {fileID: 822938854}
   - component: {fileID: 822938853}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Square
-  m_TagString: ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

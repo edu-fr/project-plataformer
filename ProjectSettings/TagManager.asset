@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
+  - SpawnItemLocation
+  - player
+  - ItemsParent
   layers:
   - Default
   - TransparentFX

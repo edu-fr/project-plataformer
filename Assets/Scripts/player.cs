@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ProjcetPlataformer
 {
@@ -82,3 +85,29 @@ namespace ProjcetPlataformer
 
     }
 }
+
+    if((groundRemember > 0) && (pressedJump > 0))
+    {
+      pressedJump = 0;
+      groundRemember = 0;
+      rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
+
+    if(Input.GetKeyUp(KeyCode.Space))
+      {
+      if(rb.velocity.y > 0)
+        {
+        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * fallSpeed);
+        }
+      }
+    }
+
+    public void HungryBar()
+    {
+      if(true)
+      {
+      currentHungry -= 1;
+      hungry.SetHealth(currentHungry);
+    }
+    }
+  }

@@ -1,8 +1,8 @@
-using ProjectPlataformer;
+
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace ProjcetPlataformer
+namespace ProjectPlataformer
 {
     public class LevelGenerator : MonoBehaviour
     {
@@ -10,9 +10,9 @@ namespace ProjcetPlataformer
         [FormerlySerializedAs("levelPart_Start")] [SerializeField] private Transform levelPartStart;
         [FormerlySerializedAs("levelPart_1")] [SerializeField] private Transform levelPart1;
         [SerializeField] private Player player;
-        
+
         private Vector3 _lastEndPosition;
-        
+
         private void Awake()
         {
             _lastEndPosition = levelPartStart.Find("EndPosition").position;
@@ -33,7 +33,7 @@ namespace ProjcetPlataformer
             Transform lastLevelPartTransform = SpawnLevelPart(_lastEndPosition);
             _lastEndPosition = lastLevelPartTransform.Find("EndPosition").position;
         }
-        
+
         private Transform SpawnLevelPart(Vector3 spawnPosition)
         {
             Transform levelPartTransform = Instantiate(levelPart1, spawnPosition, Quaternion.identity);

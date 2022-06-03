@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-namespace ProjcetPlataformer
+using UnityEngine.Serialization;
+namespace ProjectPlataformer
 {
     public class Player : MonoBehaviour
     {
-        public Rigidbody2D rigidbody;
+        [FormerlySerializedAs("rigidbodyt")]
+        public Rigidbody2D rb;
         public BoxCollider2D boxCollider;
         public bool isRunning;
 
@@ -74,7 +75,7 @@ namespace ProjcetPlataformer
         public void Run()
         {
             if (!isRunning) return;
-            rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
+            rb.velocity = new Vector2(speed, rb.velocity.y);
         }
 
         public void Jump()
@@ -85,7 +86,7 @@ namespace ProjcetPlataformer
                 Input.GetKeyDown(KeyCode.Z)) //Checks to see if is inputing Z, and is geounded, before allowing a jump
             {
                 _jumpTimeCounter = jumpTime; //times the jump
-                rigidbody.velocity = Vector2.up * jumpForce; //This is the actual jump
+                rb.velocity = Vector2.up * jumpForce; //This is the actual jump
             }
 
             if (isGrounded) //Checks to see if isGrounded
@@ -100,23 +101,23 @@ namespace ProjcetPlataformer
             {
                 _doubleJump = true; //sets double jump to true, so you can't jump again until grounded
                 _jumpTimeCounter = jumpTime; //times the jump
-                rigidbody.velocity = Vector2.up * jumpForce; //This is the jump
+                rb.velocity = Vector2.up * jumpForce; //This is the jump
             }
 
-            isFalling = rigidbody.velocity.y < 0 && !isGrounded;
+            isFalling = rb.velocity.y < 0 && !isGrounded;
 
             if ((groundRemember > 0) && (pressedJump > 0))
             {
                 pressedJump = 0;
                 groundRemember = 0;
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpForce);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
 
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                if (rigidbody.velocity.y > 0)
+                if (rb.velocity.y > 0)
                 {
-                    rigidbody.velocity = new Vector2(rigidbody.velocity.x, rigidbody.velocity.y * fallSpeed);
+                    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * fallSpeed);
                 }
             }
 

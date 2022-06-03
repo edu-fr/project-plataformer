@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace ProjectPlataformer
 {
-    public class Camera : MonoBehaviour
+    public class Cam : MonoBehaviour
     {
         public Transform target;
         public Vector3 offset;
-        
+
         public float smoothSpeed = 0.125f; // the higher this value is, the faster our camera is going to lock on our target (less time smoothing) 
 
         private void FixedUpdate()

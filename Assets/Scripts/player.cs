@@ -7,7 +7,6 @@ namespace ProjectPlataformer
 {
     public class Player : MonoBehaviour
     {
-        [FormerlySerializedAs("rigidbodyt")]
         public Rigidbody2D rb;
         public BoxCollider2D boxCollider;
         public bool isRunning;

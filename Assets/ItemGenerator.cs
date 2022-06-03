@@ -12,7 +12,7 @@ public class ItemGenerator : MonoBehaviour
     }
     
     private GameObject[] SpawnItemLocations;
-    private Player PlayerRef;
+    private player PlayerRef;
     [SerializeField] private Transform DonutPrefab;
     [SerializeField] private Transform PepperPrefab;
     private GameObject ItemsParent;
@@ -24,7 +24,7 @@ public class ItemGenerator : MonoBehaviour
     private void Awake()
     {
         SpawnItemLocations = GameObject.FindGameObjectsWithTag("SpawnItemLocation");
-        PlayerRef = GameObject.FindGameObjectWithTag("player").GetComponent<Player>();
+        PlayerRef = GameObject.FindGameObjectWithTag("player").GetComponent<player>();
         ItemsParent = GameObject.FindGameObjectWithTag("ItemsParent");
     }
 

@@ -9,7 +9,7 @@ namespace ProjectPlataformer
         private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 50f;
         [FormerlySerializedAs("levelPart_Start")] [SerializeField] private Transform levelPartStart;
         [FormerlySerializedAs("levelPart_1")] [SerializeField] private Transform levelPart1;
-        [SerializeField] private Player player;
+        [SerializeField] private player player;
 
         private Vector3 _lastEndPosition;
 

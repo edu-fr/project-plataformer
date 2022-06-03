@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace ProjectPlataformer
 {
-    public class Hungry : MonoBehaviour
+    public class hungry : MonoBehaviour
     {
         public Slider slider;
 

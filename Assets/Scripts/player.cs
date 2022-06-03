@@ -5,39 +5,39 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 namespace ProjectPlataformer
 {
-    public class Player : MonoBehaviour
+    public class player : MonoBehaviour
     {
-        public Rigidbody2D rb;
-        public BoxCollider2D boxCollider;
+        private Rigidbody2D rb;
+        private BoxCollider2D boxCollider;
         public bool isRunning;
 
-        public float speed;
+        public float speed = 7;
 
         //[Header("Ground Check Variables")]
         public bool isGrounded; //Boolean. if is on ground sets to true
         public bool isFalling; // Boolean. If isn't on ground and his rb.velocity.y is negative, it's falling
-        public float checkRadius; //decides how large the radius of the ground posiiton
-        public LayerMask whatIsGround; //references the ground layer
-        public Transform groundPos; //This is the empty game object attached to the player, which checks for Ground
+        public float checkRadius = 0.2f; //decides how large the radius of the ground posiiton
+        private LayerMask whatIsGround; //references the ground layer
+        private Transform groundPos; //This is the empty game object attached to the player, which checks for Ground
 
         //[Header("Jumping Variables")]
         private float _jumpTimeCounter; //What does this variable do lol
         private bool _doubleJump; //False by default, is true if isGrounded is false and isJumping is false
         private bool _isJumping; //False by default, sets to true if Z is input
-        public float jumpForce; //how much force goes in the jump
-        public float jumpTime; //How much time you are in the air
-        public float fallSpeed;
+        public float jumpForce = 7.5f; //how much force goes in the jump
+        public float jumpTime = 0.2f; //How much time you are in the air
+        public float fallSpeed = 0.5f;
 
         //public bool isGrounded;//the boolean to check if you are on thye ground
         private bool canJump;
         private float pressedJump;
-        public float pressedJumpTime;
-        public float groundRememberTime;
+        public float pressedJumpTime = 0.4f;
+        public float groundRememberTime = 0.4f;
         private float groundRemember;
 
         //Enemy Variables
         public Transform enemyCheck;
-        public LayerMask Enemy;
+        private LayerMask EnemyLayerMask;
         public float enemyJumpSmall;
         public float enemyJumpBig;
         public float enemyCheckRadius;
@@ -45,12 +45,23 @@ namespace ProjectPlataformer
         private bool isOnEnemy;
 
         //animation
-        public Animator anim;
-        public Hungry hungry;
+        private Animator anim;
+        private hungry hungry;
         public int maxHungry = 100;
         public int currentHungry;
         bool isMoving;
 
+        private void Awake()
+        {
+            rb = GetComponent<Rigidbody2D>();
+            boxCollider = GetComponent<BoxCollider2D>();
+            whatIsGround = LayerMask.GetMask("Plataforms");
+            groundPos = GetComponentInChildren<Transform>();
+            EnemyLayerMask = LayerMask.GetMask("Default");
+            anim = GetComponent<Animator>();
+            hungry = GameObject.FindGameObjectWithTag("HungryBarHud").GetComponent<hungry>();
+        }
+        
         void Update()
         {
             if (!isRunning)

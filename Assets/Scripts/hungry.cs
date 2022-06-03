@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-    public class hungry : MonoBehaviour
+    public class Hungry : MonoBehaviour
     {
       public Slider slider ;
 

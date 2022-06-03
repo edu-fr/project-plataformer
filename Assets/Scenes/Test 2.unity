@@ -469,6 +469,20 @@ MonoBehaviour:
   groundPos: {fileID: 483707112}
   jumpForce: 7.5
   jumpTime: 0.2
+  fallSpeed: 0
+  pressedJumpTime: 0
+  groundRememberTime: 0
+  enemyCheck: {fileID: 0}
+  Enemy:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyJumpSmall: 0
+  enemyJumpBig: 0
+  enemyCheckRadius: 0
+  anim: {fileID: 0}
+  hungry: {fileID: 0}
+  maxHungry: 100
+  currentHungry: 0
 --- !u!1001 &1259864393
 PrefabInstance:
   m_ObjectHideFlags: 0

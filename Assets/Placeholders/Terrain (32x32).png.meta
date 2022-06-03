@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -94,6 +94,42 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -2124,8 +2160,8 @@ TextureImporter:
       Terrain (32x32)_39: -1102736577
       Terrain (32x32)_86: 1469584880
       Terrain (32x32)_28: -1065636573
-      Terrain (32x32)_60: -1107892091
       Terrain (32x32)_62: 1965431911
+      Terrain (32x32)_60: -1107892091
       Terrain (32x32)_81: 1025147263
       Terrain (32x32)_78: -1234465745
       Terrain (32x32)_74: -96212242
@@ -2134,15 +2170,15 @@ TextureImporter:
       Terrain (32x32)_16: -1794198340
       Terrain (32x32)_83: -9707781
       Terrain (32x32)_6: -2901738
-      Terrain (32x32)_42: 386425405
-      Terrain (32x32)_9: -1158426983
       Terrain (32x32)_3: -1455687324
+      Terrain (32x32)_9: -1158426983
+      Terrain (32x32)_42: 386425405
       Terrain (32x32)_64: 1111176506
       Terrain (32x32)_2: -1544495803
-      Terrain (32x32)_18: -421709394
       Terrain (32x32)_91: -1194569533
-      Terrain (32x32)_46: 1004930005
+      Terrain (32x32)_18: -421709394
       Terrain (32x32)_56: -849158076
+      Terrain (32x32)_46: 1004930005
       Terrain (32x32)_66: 878486981
       Terrain (32x32)_35: 1735105448
       Terrain (32x32)_92: 1868863403

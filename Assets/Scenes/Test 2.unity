@@ -862,6 +862,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRunning: 0
   speed: 7
+  playerDefaultSpeed: 7
+  pepperBuffSpeed: 9
   isGrounded: 0
   isFalling: 0
   checkRadius: 0.7
@@ -877,6 +879,9 @@ MonoBehaviour:
   enemyCheckRadius: 0
   maxHungry: 100
   currentHungry: 0
+  playerDefaultMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  _isPepperBuffActive: 0
+  pepperBuffMaterial: {fileID: 2100000, guid: 52f98e9a98dfc104faf67b946d44095b, type: 2}
 --- !u!95 &821284903
 Animator:
   serializedVersion: 4

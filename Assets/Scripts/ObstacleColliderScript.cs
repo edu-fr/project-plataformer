@@ -28,17 +28,18 @@ public class ObstacleColliderScript : MonoBehaviour
         {
             if (col.gameObject.GetComponent<ItemScript>().itemType == ItemScript.ItemType.Donut)
             {
-                IncreaseScore(50);
+                IncreaseScore(PlayerRef._isPepperBuffActive ? 150 : 50);
             }
             else
             {
-                print("ON FIRE!!");
+                PlayerRef.ActivatePepperBuff();
             }
         }
     }
     
     public void IncreaseScore(int value)
     { 
+        
         scoreValueRef.SetText((int.Parse(scoreValueRef.text) + value).ToString());
     }
 }

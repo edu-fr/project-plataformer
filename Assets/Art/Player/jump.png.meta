@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a864e13494fca894eb65eb52a07b876f
+guid: 4006cd3e1e999b248bde3d1d881580d9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,12 +104,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ezgif-4-08aa6aec97_0
+      name: jump_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 15
         y: 0
-        width: 256
+        width: 210
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -118,19 +118,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eaf817cbbba0c64d8585864f32257d5
-      internalID: -1931204183
+      spriteID: 42f8917051747ea4b858a2eff3929447
+      internalID: -2095273679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ezgif-4-08aa6aec97_1
+      name: jump_1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 271
         y: 0
-        width: 256
+        width: 211
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -139,19 +139,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f79075fd884df2b4582cebf3e56d9253
-      internalID: 2017774764
+      spriteID: 74187fe89c0fb2f429ac46b7790334db
+      internalID: 2054286415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ezgif-4-08aa6aec97_2
+      name: jump_2
       rect:
         serializedVersion: 2
-        x: 512
+        x: 525
         y: 0
-        width: 256
+        width: 230
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -160,19 +160,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f552b1d91d5550844b9b814baac825c1
-      internalID: 1776469756
+      spriteID: 83f05b317a774cb448939b20dcb54965
+      internalID: -871308218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ezgif-4-08aa6aec97_3
+      name: jump_3
       rect:
         serializedVersion: 2
-        x: 768
+        x: 781
         y: 0
-        width: 256
+        width: 214
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1734c48e980ce47468467ea55fb5ae49
-      internalID: -2125200433
+      spriteID: 39edabc525ec1df40a2df0c3acea6892
+      internalID: -1491041785
       vertices: []
       indices: 
       edges: []
@@ -198,10 +198,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ezgif-4-08aa6aec97_3: -2125200433
-      ezgif-4-08aa6aec97_0: -1931204183
-      ezgif-4-08aa6aec97_2: 1776469756
-      ezgif-4-08aa6aec97_1: 2017774764
+      jump_2: -871308218
+      jump_0: -2095273679
+      jump_1: 2054286415
+      jump_3: -1491041785
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

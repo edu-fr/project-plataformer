@@ -791,7 +791,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821284897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.195, y: -3.848, z: 0}
+  m_LocalPosition: {x: -1.9, y: -1.22, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -870,9 +870,8 @@ MonoBehaviour:
   _isJumping: 0
   jumpForce: 8
   jumpTime: 0.2
-  fallSpeed: 0.7
-  maxHungry: 100
-  currentHungry: 0
+  fallSpeed: 0.6
+  anim: {fileID: 0}
   playerDefaultMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   _isPepperBuffActive: 0
   pepperBuffMaterial: {fileID: 2100000, guid: 52f98e9a98dfc104faf67b946d44095b, type: 2}
@@ -886,7 +885,7 @@ Animator:
   m_GameObject: {fileID: 821284897}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3ec24646c475c674c9dfdb93c90134fd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7c4910977231f104fa65bcee9a0f3ff5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1108,13 +1107,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 23.899902
       objectReference: {fileID: 0}
-    - target: {fileID: 4715133621871437421, guid: c164e65967420314e99ccaf4f6861018, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 4715133621773345050, guid: c164e65967420314e99ccaf4f6861018, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4715133621871437421, guid: c164e65967420314e99ccaf4f6861018, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715133621871437421, guid: c164e65967420314e99ccaf4f6861018, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6417967419053595084, guid: c164e65967420314e99ccaf4f6861018, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1213,7 +1216,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.17885366, g: 0.35590065, b: 0.6037736, a: 0}
+  m_BackGroundColor: {r: 0.44, g: 0.10912001, b: 0.13324678, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1426,7 +1429,7 @@ MonoBehaviour:
   m_Intensity: 3.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000047a9827fa94eb9be79babfea
+  m_ApplyToSortingLayers: 0000000079babfeaa94eb9be47a9827f
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

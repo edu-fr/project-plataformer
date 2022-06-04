@@ -44,10 +44,10 @@ namespace ProjectPlataformer
         private bool isOnEnemy;
 
         //animation
-        private Animator anim;
-        private hungry hungry;
-        public int maxHungry = 100;
-        public int currentHungry;
+        public Animator anim;
+        // private hungry hungry;
+        // public int maxHungry = 100;
+        // public int currentHungry;
         bool isMoving;
 
         [SerializeField] private Material playerDefaultMaterial;
@@ -67,13 +67,14 @@ namespace ProjectPlataformer
             groundPos = GetComponentInChildren<Transform>();
             EnemyLayerMask = LayerMask.GetMask("Default");
             anim = GetComponent<Animator>();
-            hungry = GameObject.FindGameObjectWithTag("HungryBarHud").GetComponent<hungry>();
+            // hungry = GameObject.FindGameObjectWithTag("HungryBarHud").GetComponent<hungry>();
         }
         
         void Update()
         {
             if (!isRunning)
             {
+                anim.SetFloat("Speed", 0f);
                 StartRunning();
                 return;
             }
@@ -99,7 +100,10 @@ namespace ProjectPlataformer
         {
             if (!isRunning)
                 if (Input.GetKeyDown(KeyCode.Space))
+                {
                     isRunning = true;
+                    anim.SetFloat("Speed", 1f);
+                }
         }
 
         public void Run()
@@ -116,15 +120,17 @@ namespace ProjectPlataformer
             {
                 _isJumping = true;
                 _jumpTimeCounter = jumpTime;
-                rb.velocity = Vector2.down * jumpForce / 2; // Jump downwards
+                rb.velocity = Vector2.down * jumpForce / 1.5f; // Jump downwards
                 boxCollider.enabled = false;
                 _isJumpingDown = true;
+                anim.SetBool("isJumping", true);
             } else if (isGrounded && Input.GetKeyDown(KeyCode.Z) && !_isJumping) //Checks to see if is inputing Z, and is geounded, before allowing a jump
             {
                 _isJumping = true; 
                 _jumpTimeCounter = jumpTime; //times the jump
                 rb.velocity = Vector2.up * jumpForce; //This is the actual jump
                 boxCollider.enabled = false;
+                anim.SetBool("isJumping", true);
             }
 
             if (Input.GetKeyUp(KeyCode.Z) && !_isJumpingDown)
@@ -148,19 +154,13 @@ namespace ProjectPlataformer
                 print("Is falling!");
                 boxCollider.enabled = true;
             }
-            
+
             if (isGrounded && (rb.velocity.y < 0.1 && rb.velocity.y > -0.1) && boxCollider.enabled)
-                _isJumping = false;
-
-        }
-
-        public void HungryBar()
-        {
-            if (true)
             {
-                currentHungry -= 1;
-                hungry.SetHealth(currentHungry);
+                _isJumping = false;
+                anim.SetBool("isJumping", false);
             }
+
         }
 
         public void ActivatePepperBuff()
@@ -172,5 +172,10 @@ namespace ProjectPlataformer
             speed = pepperBuffSpeed;
         }
 
+        public void SetEatingFalse()
+        { 
+            anim.SetBool("isEating", false);
+        }
     }
+    
 }

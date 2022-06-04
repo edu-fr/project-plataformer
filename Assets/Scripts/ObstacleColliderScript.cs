@@ -21,13 +21,13 @@ public class ObstacleColliderScript : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             PlayerRef.speed = 0;
-            print("Game over!");
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            PlayerRef.anim.SetTrigger("isDead");
+            StartCoroutine(ResetGame());
         }
 
         if (col.gameObject.CompareTag("Item"))
         {
+            PlayerRef.anim.SetBool("isEating", true);
             if (col.gameObject.GetComponent<ItemScript>().itemType == ItemScript.ItemType.Donut)
             {
                 IncreaseScore(PlayerRef._isPepperBuffActive ? 150 : 50);
@@ -44,4 +44,13 @@ public class ObstacleColliderScript : MonoBehaviour
     {
         scoreValueRef.SetText((int.Parse(scoreValueRef.text) + value).ToString());
     }
+
+    private IEnumerator ResetGame()
+    {
+        yield return new WaitForSeconds(1.2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+  
+
 }

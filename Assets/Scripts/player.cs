@@ -22,8 +22,7 @@ namespace ProjectPlataformer
 
         //[Header("Jumping Variables")]
         private float _jumpTimeCounter; //What does this variable do lol
-        private bool _doubleJump; //False by default, is true if isGrounded is false and isJumping is false
-        private bool _isJumping; //False by default, sets to true if Z is input
+        [SerializeField] private bool _isJumping; //False by default, sets to true if Z is input
         public float jumpForce = 7.5f; //how much force goes in the jump
         public float jumpTime = 0.2f; //How much time you are in the air
         public float fallSpeed = 0.5f;
@@ -55,7 +54,7 @@ namespace ProjectPlataformer
         {
             rb = GetComponent<Rigidbody2D>();
             boxCollider = GetComponent<BoxCollider2D>();
-            whatIsGround = LayerMask.GetMask("Plataforms");
+            whatIsGround = LayerMask.GetMask("Platforms");
             groundPos = GetComponentInChildren<Transform>();
             EnemyLayerMask = LayerMask.GetMask("Default");
             anim = GetComponent<Animator>();
@@ -72,7 +71,6 @@ namespace ProjectPlataformer
 
             Run();
             Jump();
-            CrossPlataform();
         }
 
         public void StartRunning()
@@ -90,53 +88,33 @@ namespace ProjectPlataformer
 
         public void Jump()
         {
-            isGrounded = Physics2D.OverlapCircle(groundPos.position, checkRadius, whatIsGround); //checks for ground
+            isGrounded = Physics2D.OverlapCircle(groundPos.position, checkRadius, whatIsGround); //checks for ground 
 
-            if (isGrounded &&
-                Input.GetKeyDown(KeyCode.Z)) //Checks to see if is inputing Z, and is geounded, before allowing a jump
+            if (isGrounded && Input.GetKeyDown(KeyCode.Z) && !_isJumping) //Checks to see if is inputing Z, and is geounded, before allowing a jump
             {
+                _isJumping = true; 
                 _jumpTimeCounter = jumpTime; //times the jump
                 rb.velocity = Vector2.up * jumpForce; //This is the actual jump
+                boxCollider.enabled = false; 
             }
 
-            if (isGrounded) //Checks to see if isGrounded
-            {
-                //isJumping = false;//Sets jumping to false
-                _doubleJump = false; //Double jump is false
-            }
-
-            if (isGrounded == false && _doubleJump == false &&
-                Input.GetKeyDown(KeyCode
-                    .Z)) //If you aren't grounded, and are inputing Z, and also havent double jumped yet
-            {
-                _doubleJump = true; //sets double jump to true, so you can't jump again until grounded
-                _jumpTimeCounter = jumpTime; //times the jump
-                rb.velocity = Vector2.up * jumpForce; //This is the jump
-            }
-
-            isFalling = rb.velocity.y < 0 && !isGrounded;
-
-            if ((groundRemember > 0) && (pressedJump > 0))
-            {
-                pressedJump = 0;
-                groundRemember = 0;
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            }
-
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Z))
             {
                 if (rb.velocity.y > 0)
                 {
                     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * fallSpeed);
                 }
             }
-
-        }
-
-        public void CrossPlataform()
-        {
-            if (!isGrounded)
-                boxCollider.enabled = isFalling;
+            
+            isFalling = rb.velocity.y < -0.01 && _isJumping;
+            
+            if (isFalling)
+            {
+                boxCollider.enabled = true;
+            }
+            
+            if (isGrounded && (rb.velocity.y < 0.1 && rb.velocity.y > -0.1) && boxCollider.enabled)
+                _isJumping = false;
         }
 
         public void HungryBar()

@@ -6,17 +6,20 @@ namespace ProjectPlataformer
 {
     public class LevelGenerator : MonoBehaviour
     {
-        private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 50f;
+        private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 35f;
         [FormerlySerializedAs("levelPart_Start")] [SerializeField] private Transform levelPartStart;
         [FormerlySerializedAs("levelPart_1")] [SerializeField] private Transform levelPart1;
         [SerializeField] private player player;
+        private Transform LevelPartsParent;
 
         private Vector3 _lastEndPosition;
 
         private void Awake()
         {
             _lastEndPosition = levelPartStart.Find("EndPosition").position;
+            LevelPartsParent = GameObject.FindGameObjectWithTag("LevelPartsParent").transform;
             SpawnLevelPart();
+            
         }
 
         private void Update()
@@ -36,7 +39,7 @@ namespace ProjectPlataformer
 
         private Transform SpawnLevelPart(Vector3 spawnPosition)
         {
-            Transform levelPartTransform = Instantiate(levelPart1, spawnPosition, Quaternion.identity);
+            Transform levelPartTransform = Instantiate(levelPart1, spawnPosition, Quaternion.identity, LevelPartsParent);
             return levelPartTransform;
         }
     }

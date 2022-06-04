@@ -36,7 +36,7 @@ public class EnemyGenerator : MonoBehaviour
         if (currentSpawnCooldown <= 0) // New enemies can spawn
         {
             // spawn enemies at certain distance from the player, in one of the spawn locations]
-            SpawnEnemy(new Vector3(PlayerRef.transform.position.x + 30, GetRandomEnemySpawnSpotY(), 0), Random.Range(0, 2));
+            SpawnEnemy(new Vector3(PlayerRef.transform.position.x + 23, GetRandomEnemySpawnSpotY(), 0), Random.Range(0, 2));
             // print("Spawn enemie!");
             currentSpawnCooldown = Random.Range(spawnCooldownMin, spawnCooldownMax);
         } 

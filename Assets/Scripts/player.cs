@@ -22,6 +22,7 @@ namespace ProjectPlataformer
         public float checkRadius = 0.2f; //decides how large the radius of the ground posiiton
         private LayerMask whatIsGround; //references the ground layer
         private Transform groundPos; //This is the empty game object attached to the player, which checks for Ground
+        private bool _isJumpingDown;
 
         //[Header("Jumping Variables")]
         private float _jumpTimeCounter; //What does this variable do lol
@@ -93,15 +94,22 @@ namespace ProjectPlataformer
         {
             isGrounded = Physics2D.OverlapCircle(groundPos.position, checkRadius, whatIsGround); //checks for ground 
 
-            if (isGrounded && Input.GetKeyDown(KeyCode.Z) && !_isJumping) //Checks to see if is inputing Z, and is geounded, before allowing a jump
+            if (isGrounded && Input.GetKeyDown(KeyCode.Z) && Input.GetKey(KeyCode.DownArrow) && !_isJumping) // Down jump
+            {
+                _isJumping = true;
+                _jumpTimeCounter = jumpTime;
+                rb.velocity = Vector2.down * jumpForce / 2; // Jump downwards
+                boxCollider.enabled = false;
+                _isJumpingDown = true;
+            } else if (isGrounded && Input.GetKeyDown(KeyCode.Z) && !_isJumping) //Checks to see if is inputing Z, and is geounded, before allowing a jump
             {
                 _isJumping = true; 
                 _jumpTimeCounter = jumpTime; //times the jump
                 rb.velocity = Vector2.up * jumpForce; //This is the actual jump
-                boxCollider.enabled = false; 
+                boxCollider.enabled = false;
             }
 
-            if (Input.GetKeyUp(KeyCode.Z))
+            if (Input.GetKeyUp(KeyCode.Z) && !_isJumpingDown)
             {
                 if (rb.velocity.y > 0)
                 {
@@ -109,15 +117,23 @@ namespace ProjectPlataformer
                 }
             }
             
-            isFalling = rb.velocity.y < -0.01 && _isJumping;
+            if (_isJumpingDown && Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                _isJumpingDown = false;
+                boxCollider.enabled = true; 
+            }
+            
+            isFalling = rb.velocity.y < -0.01 && _isJumping && !_isJumpingDown;
             
             if (isFalling)
             {
+                print("Is falling!");
                 boxCollider.enabled = true;
             }
             
             if (isGrounded && (rb.velocity.y < 0.1 && rb.velocity.y > -0.1) && boxCollider.enabled)
                 _isJumping = false;
+
         }
 
         public void HungryBar()

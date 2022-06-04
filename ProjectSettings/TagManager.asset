@@ -11,6 +11,9 @@ TagManager:
   - HungryBarHud
   - EnemiesParent
   - LevelPartsParent
+  - Enemy
+  - Item
+  - LevelController
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Platforms
   - Water
   - UI
-  - 
+  - Obstacles
   - 
   - 
   - 

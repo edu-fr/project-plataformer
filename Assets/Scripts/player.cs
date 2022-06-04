@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+
 namespace ProjectPlataformer
 {
     public class player : MonoBehaviour
     {
+        
         private Rigidbody2D rb;
         private BoxCollider2D boxCollider;
         public bool isRunning;
@@ -125,5 +128,6 @@ namespace ProjectPlataformer
                 hungry.SetHealth(currentHungry);
             }
         }
+
     }
 }

@@ -5,12 +5,6 @@ using UnityEngine;
 
 public class ItemGenerator : MonoBehaviour
 {
-    enum ItemType
-    {
-        Donut = 0,
-        Pepper = 1
-    }
-    
     private GameObject[] SpawnItemLocations;
     private player PlayerRef;
     [SerializeField] private Transform DonutPrefab;
@@ -45,6 +39,7 @@ public class ItemGenerator : MonoBehaviour
     private void SpawnItem(Vector3 position, int itemNumber)
     {
         var newItemInstantiated = Instantiate( GetItemPrefabFromNumber(itemNumber), position, Quaternion.identity, ItemsParent.transform);
+        newItemInstantiated.GetComponent<ItemScript>().itemType = GetItemTypeFromNumber(itemNumber);
         Destroy(newItemInstantiated.gameObject, 15f);
     }
 
@@ -60,6 +55,16 @@ public class ItemGenerator : MonoBehaviour
             0 => DonutPrefab,
             1 => PepperPrefab,
             _ => DonutPrefab
+        };
+    }
+    
+    private ItemScript.ItemType GetItemTypeFromNumber(int number)
+    {
+        return number switch
+        {
+            0 => ItemScript.ItemType.Donut,
+            1 => ItemScript.ItemType.Pepper,
+            _ => ItemScript.ItemType.Donut
         };
     }
 }

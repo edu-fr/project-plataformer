@@ -29,9 +29,7 @@ public class ItemGenerator : MonoBehaviour
         currentSpawnCooldown -= Time.deltaTime;
         if (currentSpawnCooldown <= 0) // New items can spawn
         {
-            var itemNumber = 0;
-            // spawn item at certain distance from the player, in one of the spawn locations]
-            SpawnItem(new Vector3(PlayerRef.transform.position.x + Random.Range(20, 25), GetRandomItemSpawnSpotY(), 0), Random.Range(0, 100) > 80 ? 1 : 0); // 80% donut
+            SpawnItem(new Vector3(PlayerRef.transform.position.x + Random.Range(20, 25), GetRandomItemSpawnSpotY(), 0), Random.Range(0, 100) > 87 ? 1 : 0); // 80% donut
             currentSpawnCooldown = Random.Range(spawnCooldownMin, spawnCooldownMax);
         } 
     }

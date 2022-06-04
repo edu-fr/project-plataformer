@@ -36,16 +36,10 @@ namespace ProjectPlataformer
         //public bool isGrounded;//the boolean to check if you are on thye ground
         private bool canJump;
         private float pressedJump;
-        public float pressedJumpTime = 0.4f;
-        public float groundRememberTime = 0.4f;
         private float groundRemember;
 
         //Enemy Variables
-        public Transform enemyCheck;
         private LayerMask EnemyLayerMask;
-        public float enemyJumpSmall;
-        public float enemyJumpBig;
-        public float enemyCheckRadius;
         private bool enemyChecker;
         private bool isOnEnemy;
 
@@ -60,7 +54,7 @@ namespace ProjectPlataformer
         
         // Pepper buff
         public bool _isPepperBuffActive = false;
-        private float _pepperBuffDuration = 3f;
+        private float _pepperBuffDuration = 4f;
         private float _pepperBuffCurrentTimer = 0f;
         [SerializeField] private Material pepperBuffMaterial; 
         

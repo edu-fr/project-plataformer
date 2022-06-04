@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ProjectPlataformer;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObstacleColliderScript : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class ObstacleColliderScript : MonoBehaviour
         {
             PlayerRef.speed = 0;
             print("Game over!");
-            return;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (col.gameObject.CompareTag("Item"))
@@ -34,12 +36,12 @@ public class ObstacleColliderScript : MonoBehaviour
             {
                 PlayerRef.ActivatePepperBuff();
             }
+            Destroy(col.gameObject);
         }
     }
     
     public void IncreaseScore(int value)
-    { 
-        
+    {
         scoreValueRef.SetText((int.Parse(scoreValueRef.text) + value).ToString());
     }
 }

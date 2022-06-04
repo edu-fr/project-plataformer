@@ -9,6 +9,7 @@ TagManager:
   - player
   - ItemsParent
   - HungryBarHud
+  - EnemiesParent
   layers:
   - Default
   - TransparentFX

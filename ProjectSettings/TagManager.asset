@@ -10,14 +10,15 @@ TagManager:
   - ItemsParent
   - HungryBarHud
   - EnemiesParent
+  - LevelPartsParent
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Plataforms
+  - Platforms
   - Water
   - UI
-  - ground
+  - 
   - 
   - 
   - 

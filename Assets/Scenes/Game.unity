@@ -1206,7 +1206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4715133621773345050, guid: c164e65967420314e99ccaf4f6861018, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4715133621871437420, guid: c164e65967420314e99ccaf4f6861018, type: 3}
       propertyPath: m_Color.b
@@ -1222,11 +1222,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4715133621871437421, guid: c164e65967420314e99ccaf4f6861018, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4715133621871437421, guid: c164e65967420314e99ccaf4f6861018, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4715133622514038029, guid: c164e65967420314e99ccaf4f6861018, type: 3}
       propertyPath: m_Color.b
@@ -1490,7 +1490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af45331a73ffe8d4ea754d1035d9e2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpablePrefab: {fileID: 6324386590962620449, guid: 2d4f82faae07fde4fa82419b7da50691, type: 3}
+  JumpablePrefab: {fileID: 2504539780891170737, guid: bec5f240a726c4b479644e3339a04594, type: 3}
   LargePrefab: {fileID: 2504539780891170737, guid: 2f843e61c9167a4459a2276073505d8d, type: 3}
   spawnCooldownMin: 2.5
   spawnCooldownMax: 3.5
